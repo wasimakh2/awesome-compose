@@ -1,5 +1,7 @@
 version: "3"
-
+# run this if you are having issue
+#  wsl -d docker-desktop
+#  sysctl -w vm.max_map_count=262144
 services:
   sonarqube:
     image: sonarqube
