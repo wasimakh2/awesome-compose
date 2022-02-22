@@ -1,0 +1,6 @@
+version: '3.7'
+services:
+  windowbasednodejs:
+    image: stefanscherer/node-windows:latest
+    container_name: windowbasednodejs
+    restart: always
