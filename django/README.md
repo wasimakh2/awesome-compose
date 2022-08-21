@@ -4,7 +4,7 @@
 Project structure:
 ```
 .
-├── docker-compose.yml
+├── compose.yaml
 ├── app
     ├── Dockerfile
     ├── requirements.txt
@@ -12,7 +12,7 @@ Project structure:
 
 ```
 
-[_docker-compose.yml_](docker-compose.yml)
+[_compose.yaml_](compose.yaml)
 ```
 services: 
   web: 
@@ -21,10 +21,10 @@ services:
       - '8000:8000'
 ```
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "django_default" with the default driver
 Building web
 Step 1/6 : FROM python:3.7-alpine
@@ -48,5 +48,12 @@ After the application starts, navigate to `http://localhost:8000` in your web br
 
 Stop and remove the containers
 ```
-$ docker-compose down
+$ docker compose down
 ```
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.  
+To develop directly the web service inside a container, you just need to use the https git url of the sample:  
+`https://github.com/docker/awesome-compose/tree/master/django`
+
+![page](../dev-envs.png)

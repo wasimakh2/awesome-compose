@@ -9,12 +9,12 @@ Project structure:
 │   └── ...
 ├── db
 │   └── password.txt
-├── docker-compose.yaml
+├── compose.yaml
 └── README.md
 
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   backend:
@@ -29,7 +29,7 @@ services:
     ...
 ```
 The compose file defines an application with two services `backend` and `db`.
-When deploying the application, docker-compose maps port 8080 of the backend service container to port 80 of the host as specified in the file.
+When deploying the application, docker compose maps port 8080 of the backend service container to port 80 of the host as specified in the file.
 Make sure port 8080 on the host is not already being in use.
 
 > ℹ️ **_INFO_**  
@@ -37,10 +37,10 @@ Make sure port 8080 on the host is not already being in use.
 > You still can use the MySQL image by uncommenting the following line in the Compose file   
 > `#image: mysql:8.0.27`
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "sparkjava-mysql_default" with the default driver
 Building backend
 ...
@@ -68,10 +68,18 @@ $ curl localhost:8080
 
 Stop and remove the containers
 ```
-$ docker-compose down
+$ docker compose down
 Stopping sparkjava-mysql_backend_1 ... done
 Stopping sparkjava-mysql_db_1      ... done
 Removing sparkjava-mysql_backend_1 ... done
 Removing sparkjava-mysql_db_1      ... done
 Removing network sparkjava-mysql_default
 ```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.  
+To develop directly frontend or the backend services inside containers, you just need to use the https git url of the sample:  
+`https://github.com/docker/awesome-compose/tree/master/sparkjava-mysql`
+
+![page](../dev-envs.png)

@@ -7,14 +7,14 @@ Project structure:
 ├── backend
 │   ├── Dockerfile
 │   ...
-├── docker-compose.yaml
+├── compose.yaml
 ├── frontend
 │   ├── ...
 │   └── Dockerfile
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   frontend:
@@ -42,13 +42,13 @@ services:
     ...
 ```
 The compose file defines an application with three services `frontend`, `backend` and `db`.
-When deploying the application, docker-compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.
+When deploying the application, docker compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.
 Make sure port 3000 on the host is not already being in use.
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "react-express-mongodb_default" with the default driver
 Building frontend
 Step 1/9 : FROM node:13.13.0-stretch-slim
@@ -78,7 +78,7 @@ After the application starts, navigate to `http://localhost:3000` in your web br
 
 Stop and remove the containers
 ```
-$ docker-compose down
+$ docker compose down
 Stopping server   ... done
 Stopping frontend ... done
 Stopping mongo    ... done
@@ -132,3 +132,14 @@ __Explanation of service mongo__
 :key: `If you wish to check your DB changes on your local machine as well. You should have installed MongoDB locally, otherwise you can't access your mongodb service of container from host machine.` 
 
 :white_check_mark: You should check your __mongo__ version is same as used in image. You can see the version of __mongo__ image in `docker-compose `file, I used __image: mongo:4.2.0__. If your mongo db version on your machine is not same then furst you have to updated your  local __mongo__ version in order to works correctly.
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.
+
+![Screenshot of creating a Dev Environment in Docker Desktop](../dev-envs.png)
+
+To develop directly on the services inside containers, use the HTTPS Git url of the sample:
+```
+https://github.com/docker/awesome-compose/tree/master/react-express-mongodb
+```

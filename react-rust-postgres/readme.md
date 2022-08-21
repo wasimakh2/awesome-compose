@@ -8,14 +8,14 @@ Project structure:
 ├── backend
 │   ├── Dockerfile
 │   ...
-├── docker-compose.yaml
+├── compose.yaml
 ├── frontend
 │   ├── ...
 │   └── Dockerfile
 └── README.md
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 ```
 services:
   backend:
@@ -31,13 +31,13 @@ services:
     ...
 ```
 The compose file defines an application with three services `frontend`, `backend` and `db`.
-When deploying the application, docker-compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.
+When deploying the application, docker compose maps port 3000 of the frontend service container to port 3000 of the host as specified in the file.
 Make sure port 3000 on the host is not already being in use.
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 Creating network "react-rust-postgres_default" with the default driver
 Building backend
 ...
@@ -65,7 +65,7 @@ After the application starts, navigate to `http://localhost:3000` in your web br
 
 Stop and remove the containers
 ```
-$ docker-compose down
+$ docker compose down
 Stopping react-rust-postgres_backend_1  ... done
 Stopping react-rust-postgres_frontend_1 ... done
 Stopping react-rust-postgres_db_1       ... done
@@ -74,3 +74,11 @@ Removing react-rust-postgres_frontend_1 ... done
 Removing react-rust-postgres_db_1       ... done
 Removing network react-rust-postgres_default
 ```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.  
+To develop directly frontend or the backend services inside containers, you just need to use the https git url of the sample:  
+`https://github.com/docker/awesome-compose/tree/master/react-rust-postgres`
+
+![page](../dev-envs.png)

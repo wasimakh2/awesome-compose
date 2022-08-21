@@ -5,7 +5,7 @@
 Project structure:
 
 ```
-├── docker-compose.yml
+├── compose.yaml
 ├── Dockerfile
 ├── .dockerignore
 ├── .nginx
@@ -22,7 +22,7 @@ Project structure:
 
 ```
 
-[_docker-compose.yaml_](docker-compose.yaml)
+[_compose.yaml_](compose.yaml)
 
 ```
 services:
@@ -35,12 +35,12 @@ services:
 ```
 
 The compose file defines an application with an services `frontend`.
-When deploying the application, docker-compose maps port 80 of the frontend service container to port 80 of the host as specified in the file.  
+When deploying the application, docker compose maps port 80 of the frontend service container to port 80 of the host as specified in the file.  
 
-## Deploy with docker-compose
+## Deploy with docker compose
 
 ```
-$ docker-compose up -d
+$ docker compose up -d
 Building frontend
 Sending build context to Docker daemon   1.49MB
 
@@ -81,8 +81,19 @@ After the application start, navigate to http://localhost in your browser:
 Stop and remove the containers
 
 ```
-$ docker-compose down
+$ docker compose down
 Stopping frontend ... done
 Removing frontend ... done
 Removing network react-nginx_default
+```
+
+## Use with Docker Development Environments
+
+You can use this sample with the Dev Environments feature of Docker Desktop.
+
+![Screenshot of creating a Dev Environment in Docker Desktop](../dev-envs.png)
+
+To develop directly on the services inside containers, use the HTTPS Git url of the sample:
+```
+https://github.com/docker/awesome-compose/tree/master/react-nginx
 ```
