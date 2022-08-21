@@ -5,8 +5,10 @@ services:
     environment:
       - ACCEPT_EULA=Y
       - SA_PASSWORD=Sql1Password
+    volumes:
+      - ~/apps/mssql/data:/var/lib/mssqlql/data
     ports:
-      - 1433:1433    
+      - 1433:1433
     healthcheck:
       test: /opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P Sql1Password -d msdb -Q "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_CATALOG='msdb'"
       timeout: 20s
